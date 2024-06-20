@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:app/screens/Image_generator.dart';
+import 'package:app/screens/profile.dart';
 const _maincolor = Color.fromARGB(255, 26, 106, 197);
 final _secondcolor = Colors.purple.shade100;
 
@@ -11,13 +12,16 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int _currentIndex = 0; // Add a state variable for current index
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey[200],
       appBar: AppBar(
         automaticallyImplyLeading: false,
         centerTitle: true,
-        backgroundColor: _maincolor,
+        backgroundColor: Colors.blueGrey,
         title: Text(
           "Research Assistant",
           style: TextStyle(
@@ -29,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
         leading: Row(
           children: [
             const SizedBox(
-              width: 14,
+              width: 10,
             ),
             CircleAvatar(
               backgroundColor: _secondcolor,
@@ -42,6 +46,31 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
+        actions: [
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: _secondcolor,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()),
+                  );
+                },
+                child: CircleAvatar(
+                  backgroundColor: _secondcolor,
+                  radius: 21,
+                  child: const Icon(
+                    Icons.account_circle_outlined,
+                    color: Colors.black,
+                    size: 28,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
+            ],
+
       ),
       body: Center(
         child: Column(
@@ -96,16 +125,37 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: _maincolor,
-        currentIndex: 1,
-        unselectedIconTheme: IconThemeData(opacity: 0.5,color: Colors.white),
+        backgroundColor: Colors.blueGrey,
+        currentIndex: _currentIndex, // Use the state variable
+        unselectedIconTheme: IconThemeData(opacity: 0.5, color: Colors.white),
         selectedIconTheme: IconThemeData(opacity: 1, color: Colors.white),
+        selectedItemColor: Colors.white, // Ensure selected item color is set
+        unselectedItemColor: Colors.white54, // Ensure unselected item color is set
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.chat),label: 'Chat'),
-          BottomNavigationBarItem(icon: Icon(Icons.history_rounded),label: 'History'),
-          BottomNavigationBarItem(icon: Icon(Icons.person),label: 'Profile')
+          BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
+          BottomNavigationBarItem(icon: Icon(Icons.history_rounded), label: 'History'),
+          // BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.ads_click_rounded), label: 'Image'),
         ],
+        onTap: (int index) {
+          setState(() {
+            _currentIndex = index; // Update the state variable
+          });
+
+          if (index == 2) { // Navigate to ImageScreen if the last item is clicked
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ImageGeneratorScreen()),
+            );
+          }
+        },
       ),
     );
   }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: HomeScreen(),
+  ));
 }
