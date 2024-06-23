@@ -69,6 +69,24 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const SizedBox(width: 10),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: _secondcolor,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),),
+                onPressed: () {
+                },
+                child: CircleAvatar(
+                  backgroundColor: _secondcolor,
+                  radius: 21,
+                  child: const Icon(
+                    Icons.logout_rounded,
+                    color: Colors.black,
+                    size: 28,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
             ],
 
       ),
@@ -97,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 14,
             ),
-            Text("start researching on a paper now",
+            Text("Start Researching on a paper now",
                 style: TextStyle(
                     fontSize: 20,
                     color: _secondcolor,

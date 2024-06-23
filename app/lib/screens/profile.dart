@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:app/screens/edit_profile.dart';
+import 'package:app/screens/profile_provider.dart';
+import 'package:provider/provider.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -9,55 +12,57 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: Colors.blueGrey,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            GestureDetector(
-              onTap: () {
-                // Add functionality to change profile image
-                print('Change profile image');
-              },
-              child: Icon(
-                Icons.account_box_rounded,
-                size: 60, // Adjust size of the icon
-                color: Colors.blueGrey,
-              // You can use NetworkImage for online images
-                // backgroundImage: NetworkImage('url_to_your_image'),
-              ),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'John Doe',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Front-end Developer',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.grey[600],
-              ),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                // Add functionality to edit profile
-                print('Edit Profile');
-              },
-              child: Text('Edit Profile'),
-            ),
-          ],
+        child: Consumer<ProfileProvider>(
+          builder: (context, profile, child) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                GestureDetector(
+                  onTap: () {
+                    // Add functionality to change profile image
+                  },
+                  child: Icon(
+                    Icons.account_box_rounded,
+                    size: 60, // Adjust size of the icon
+                    color: Colors.blueGrey,
+                  ),
+                ),
+                SizedBox(height: 20),
+                Text(
+                  profile.name,
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  profile.jobTitle,
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.grey[600],
+                  ),
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () async {
+                    final result = await Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => EditProfilePage()),
+                    );
+
+                    if (result != null && result is Map<String, String>) {
+                      Provider.of<ProfileProvider>(context, listen: false)
+                          .updateProfile(result['name']!, result['jobTitle']!);
+                    }
+                  },
+                  child: Text('Edit Profile'),
+                ),
+              ],
+            );
+          },
         ),
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: ProfilePage(),
-  ));
 }
