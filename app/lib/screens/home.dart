@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app/screens/Image_generator.dart';
 import 'package:app/screens/profile.dart';
+import 'package:app/user/logout.dart';
 const _maincolor = Color.fromARGB(255, 26, 106, 197);
 final _secondcolor = Colors.purple.shade100;
 
@@ -19,11 +20,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Colors.blueGrey[200],
       appBar: AppBar(
+        toolbarHeight: 60,
         automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: Colors.blueGrey,
         title: Text(
-          "Research Assistant",
+          "ET AL",
           style: TextStyle(
             color: _secondcolor,
             fontWeight: FontWeight.bold,
@@ -33,17 +35,9 @@ class _HomeScreenState extends State<HomeScreen> {
         leading: Row(
           children: [
             const SizedBox(
-              width: 10,
+              width: 5,
             ),
-            CircleAvatar(
-              backgroundColor: _secondcolor,
-              radius: 21,
-              child: const Icon(
-                Icons.panorama_photosphere,
-                color: Colors.black,
-                size: 28,
-              ),
-            ),
+            Image.asset('lib/Images/logo.png', height: 50,)
           ],
         ),
         actions: [
@@ -69,6 +63,28 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const SizedBox(width: 10),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: _secondcolor,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LogoutPage()),
+                  );
+                },
+                child: CircleAvatar(
+                  backgroundColor: _secondcolor,
+                  radius: 21,
+                  child: const Icon(
+                    Icons.logout_rounded,
+                    color: Colors.black,
+                    size: 28,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
             ],
 
       ),
@@ -76,11 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircleAvatar(
-                backgroundColor: _secondcolor,
-                radius: 66,
-                child: const Icon(Icons.panorama_photosphere,
-                    color: Colors.black, size: 90)),
+            Image.asset('lib/Images/logo.png', height: 200,),
             const SizedBox(
               height: 14,
             ),
@@ -97,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 14,
             ),
-            Text("start researching on a paper now",
+            Text("Start Researching on a paper now",
                 style: TextStyle(
                     fontSize: 20,
                     color: _secondcolor,

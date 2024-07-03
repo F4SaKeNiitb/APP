@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:app/screens/edit_profile.dart';
-import 'package:app/screens/profile_provider.dart';
+import 'edit_profile.dart';
+import 'profile_provider.dart';
 import 'package:provider/provider.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.teal[50],
       appBar: AppBar(
         title: Text('Profile'),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.teal,
       ),
       body: Center(
         child: Consumer<ProfileProvider>(
@@ -24,7 +25,7 @@ class ProfilePage extends StatelessWidget {
                   child: Icon(
                     Icons.account_box_rounded,
                     size: 60, // Adjust size of the icon
-                    color: Colors.blueGrey,
+                    color: Colors.teal[300],
                   ),
                 ),
                 SizedBox(height: 20),
@@ -40,7 +41,7 @@ class ProfilePage extends StatelessWidget {
                   profile.jobTitle,
                   style: TextStyle(
                     fontSize: 18,
-                    color: Colors.grey[600],
+                    color: Colors.teal[300],
                   ),
                 ),
                 SizedBox(height: 20),
