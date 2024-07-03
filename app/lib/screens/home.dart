@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:app/screens/Image_generator.dart';
-import 'package:app/screens/profile.dart';
-import 'package:app/user/logout.dart';
+import '/screens/Image_generator.dart';
+import '/screens/profile.dart';
+import '/Harish//user/logout.dart';
 const _maincolor = Color.fromARGB(255, 26, 106, 197);
 final _secondcolor = Colors.purple.shade100;
 
