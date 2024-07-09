@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:app/Harish/home.dart';
-import 'package:app/Harish/profile/profile_provider.dart';
+import '../Harish/profile/profile_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:app/Harish/user/login.dart';
+import 'Harish/onboarding.dart';
 void main() {
   runApp(
     MultiProvider(
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'MyFont1',
       ),
-      home: LoginPage(),
+      home: const OnboardingScreen(),
     );
   }
 }
