@@ -6,18 +6,6 @@ import 'package:url_launcher/url_launcher.dart';
 // generates the search screen while scraping data from google scholar
 // void main() => runApp(const ScholarSearchApp()); 
 
-class ScholarSearchApp extends StatelessWidget {
-  const ScholarSearchApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Google Scholar Search',
-      home: ScholarSearchScreen(),
-    );
-  }
-}
-
 class ScholarSearchScreen extends StatefulWidget {
   const ScholarSearchScreen({super.key});
 

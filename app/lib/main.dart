@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:app/Harish/home.dart';
-import 'package:app/Harish/profile/profile_provider.dart';
+import '../Harish/profile/profile_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:app/Harish/user/login.dart';
+import 'Harish/onboarding.dart';
+import 'Harish/Const.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
 void main() {
+  Gemini.init(
+    apiKey: GEMINI_API_KEY,
+  );
   runApp(
     MultiProvider(
       providers: [
@@ -13,6 +17,7 @@ void main() {
     ),
   );
 }
+
 
 class MyApp extends StatelessWidget {
   @override
@@ -24,7 +29,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'MyFont1',
       ),
-      home: LoginPage(),
+      home: const OnboardingScreen(),
     );
   }
 }

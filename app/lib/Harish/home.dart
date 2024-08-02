@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:app/Harish/profile/profile.dart';
-import 'package:app/Harish/Settings/settings.dart';
-import 'package:app/Harish/user/logout.dart';
+import '../Harish/Settings/settings.dart';
+import '../Harish/user/logout.dart';
 import 'paper_submission_page.dart';
 import 'summary_analysis_page.dart';
 import 'qa_page.dart';
 import 'latex_editor_page.dart';
 import 'search_page.dart';
-
+import 'profile/profile.dart';
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -15,13 +14,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-  static List<Widget> _pages = <Widget>[
+  static final List<Widget> _pages =  <Widget>[
     HomeContent(),
     PaperSubmissionPage(),
     SummaryAnalysisPage(),
-    QAPage(),
+    QA_Screen(),
     LatexEditorPage(),
-    SearchPage(),
+    const ScholarSearchScreen(),
     SettingsPage(),
   ];
 
@@ -42,7 +41,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.teal[50],
       appBar: AppBar(
-        title: Text('ET AL - Your Research Assistant'),
+        title: const Text('ET AL - Your Research Assistant'),
         backgroundColor: Colors.teal,
         leading: GestureDetector(
           onTap: _onLogoTapped,
