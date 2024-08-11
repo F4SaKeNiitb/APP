@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import '../Harish/Settings/settings.dart';
-import '../Harish/user/logout.dart';
-import 'paper_submission_page.dart';
-import 'summary_analysis_page.dart';
-import 'qa_page.dart';
-import 'latex_editor_page.dart';
 import 'search_page.dart';
-import 'profile/profile.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -16,10 +11,6 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   static final List<Widget> _pages =  <Widget>[
     HomeContent(),
-    PaperSubmissionPage(),
-    SummaryAnalysisPage(),
-    QA_Screen(),
-    LatexEditorPage(),
     const ScholarSearchScreen(),
     SettingsPage(),
   ];
@@ -30,26 +21,19 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  void _onLogoTapped() {
-    setState(() {
-      _selectedIndex = 0; // Navigate to home page
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal[50],
+      backgroundColor: const Color(0xFF176AAC),
       appBar: AppBar(
-        title: const Text('ET AL'),
-        backgroundColor: Colors.teal,
+        title: const Text('ET AL',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+        backgroundColor: const Color(0xFF176AAC),
       ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            
-            Container(
+            const SizedBox(
               height: 124.0,
               child: DrawerHeader(
                 decoration: BoxDecoration(
@@ -176,28 +160,14 @@ class _HomePageState extends State<HomePage> {
         child: _pages.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: const Color(0xFF176AAC),
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.upload_file),
-            label: 'Submit Paper',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.analytics),
-            label: 'Summary & Analysis',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.question_answer),
-            label: 'Q&A',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.code),
-            label: 'LaTeX',
-          ),
+
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: 'Search',
@@ -208,8 +178,8 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.teal,
-        unselectedItemColor: Colors.teal[300],
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white38,
         onTap: _onItemTapped,
       ),
     );
@@ -299,9 +269,9 @@ class FeatureTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: Icon(icon, color: Colors.teal, size: 40.0),
-      title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
+      title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
       subtitle: Text(subtitle),
-      contentPadding: EdgeInsets.symmetric(vertical: 8.0),
+      contentPadding: const EdgeInsets.symmetric(vertical: 8.0),
     );
   }
 }
