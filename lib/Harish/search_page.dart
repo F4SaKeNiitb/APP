@@ -103,6 +103,7 @@ class _ScholarSearchScreenState extends State<ScholarSearchScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:  Color(0xFF176AAC),
       body: GestureDetector(
         onTap: () {
           FocusScope.of(context).unfocus();
