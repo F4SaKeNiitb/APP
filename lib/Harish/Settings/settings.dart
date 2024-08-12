@@ -7,7 +7,7 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal[50],
+      backgroundColor: Color(0xFF4D90C6),
       appBar: AppBar(
         title: Text(
           'Settings',
@@ -15,7 +15,7 @@ class SettingsPage extends StatelessWidget {
             fontSize: 24, // Customize the font size
           ),
         ),
-        backgroundColor: Colors.teal[300], // Customize the AppBar color
+        backgroundColor: Color(0xFF4D90C6), // Customize the AppBar color
       ),
       body: ListView(
         padding: EdgeInsets.all(16.0),
