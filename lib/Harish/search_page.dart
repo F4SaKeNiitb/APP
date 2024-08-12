@@ -3,7 +3,6 @@ import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as html_parser;
 import 'package:url_launcher/url_launcher.dart';
 
-
 class ScholarSearchScreen extends StatefulWidget {
   const ScholarSearchScreen({super.key});
 
@@ -91,6 +90,7 @@ class _ScholarSearchScreenState extends State<ScholarSearchScreen>
       setState(() {
         _isLoading = false;
       });
+      // Navigate to the search results screen
       Navigator.push(
         context,
         MaterialPageRoute(
