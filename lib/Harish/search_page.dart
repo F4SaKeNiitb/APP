@@ -124,7 +124,7 @@ class _ScholarSearchScreenState extends State<ScholarSearchScreen>
                     return Transform.scale(
                       scale: _scaleAnimation.value,
                       child: CircleAvatar(
-                        backgroundColor: const Color(0xFFD0E0ED),
+                        backgroundColor: const Color(0xFF4D90C6),
                         radius: 50,
                         child: Container(
                           padding: const EdgeInsets.all(10),
@@ -144,7 +144,6 @@ class _ScholarSearchScreenState extends State<ScholarSearchScreen>
                           ),
                           child: Image.asset(
                             'lib/Images/google_scholar.png',
-                            height: 40,
                           ),
                         ),
                       ),
@@ -271,7 +270,7 @@ class SearchResultsScreen extends StatelessWidget {
         elevation: 10,
       ),
       body: Container(
-        color: const Color(0xFF176AAC),
+        color: const Color(0xFF4D90C6),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: searchResults.isEmpty

@@ -1,3 +1,4 @@
+import 'package:app/Harish/qa_page.dart';
 import 'package:flutter/material.dart';
 import '../Harish/Settings/settings.dart';
 import 'search_page.dart';
@@ -10,8 +11,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   static final List<Widget> _pages =  <Widget>[
-    HomeContent(),
     const ScholarSearchScreen(),
+    QA_Screen(),
     SettingsPage(),
   ];
 
@@ -33,14 +34,14 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            const SizedBox(
+            Container(
               height: 124.0,
               child: DrawerHeader(
                 decoration: BoxDecoration(
-                  color:const Color(0xFF4D90C6),
+                  color: Color(0xFF4D90C6),
                 ),
                 child: Text(
-                  'Recent Activities',
+                  'Fields',
                   style: TextStyle(
                     fontSize: 24,
                     fontFamily: 'MyFont2',
@@ -50,21 +51,70 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               leading: Icon(
-                Icons.all_inclusive_rounded,
-
+                Icons.upload_file,
               ),
-              title: Text('Submission'),
-              subtitle:Text('Submitted a new paper on AI advancements.'),
+              title: Text('Submit Paper'),
               onTap: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => aero()),
+                // );
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.analytics,
+              ),
+              title: Text('Summary & Analysis'),
+              onTap: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => AIML()),
+                // );
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.question_answer,
+              ),
+              title: Text('Interactive QnA'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => QA_Screen()),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.code
+              ),
+              title: Text('LaTeX Code Generation'),
+              onTap: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => civil()),
+                // );
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.search,
+              ),
+              title: Text('Search for Papers'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ScholarSearchScreen()),
+                );
               },
             ),
             ListTile(
               leading: Icon(
                 Icons.all_inclusive_rounded,
-
               ),
-              title: Text('Viewd'),
-              subtitle:Text('Viewed a new paper on AI advancements.'),
+              title: Text('Recent Activities'),
+              subtitle:Text('Submitted a new paper on AI advancements.'),
               onTap: () {
               },
             ),
@@ -82,10 +132,9 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
+            icon: Icon(Icons.question_answer),
+            label: 'QnA',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
@@ -96,78 +145,6 @@ class _HomePageState extends State<HomePage> {
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white38,
         onTap: _onItemTapped,
-      ),
-    );
-  }
-}
-
-class HomeContent extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            'Welcome to ET AL!',
-            style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 10.0),
-          Text(
-            'An app to assist you with research paper submissions, summaries, Q&A, LaTeX code generation, and more.',
-            style: TextStyle(fontSize: 16.0),
-          ),
-          SizedBox(height: 20.0),
-          Text(
-            'Key Features',
-            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 10.0),
-          FeatureTile(
-            icon: Icons.upload_file,
-            title: 'Submit Paper',
-            subtitle: 'Easily submit your research papers.',
-          ),
-          FeatureTile(
-            icon: Icons.analytics,
-            title: 'Summary & Analysis',
-            subtitle: 'Get summaries and analyses of papers.',
-          ),
-          FeatureTile(
-            icon: Icons.question_answer,
-            title: 'Interactive Q&A',
-            subtitle: 'Engage in Q&A sessions about your research.',
-          ),
-          FeatureTile(
-            icon: Icons.code,
-            title: 'LaTeX Code Generation',
-            subtitle: 'Generate LaTeX code for your papers.',
-          ),
-          FeatureTile(
-            icon: Icons.search,
-            title: 'Search for Papers',
-            subtitle: 'Find papers relevant to your research.',
-          ),
-          SizedBox(height: 20.0),
-          Text(
-            'Recent Activities',
-            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 10.0),
-          RecentActivityTile(
-            activity: 'Submitted a new paper on AI advancements.',
-            time: '2 hours ago',
-          ),
-          RecentActivityTile(
-            activity: 'Generated LaTeX code for a research paper.',
-            time: '1 day ago',
-          ),
-          RecentActivityTile(
-            activity: 'Analyzed 5 new research papers.',
-            time: '2 days ago',
-          ),
-        ],
       ),
     );
   }
