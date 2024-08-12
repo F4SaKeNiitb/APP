@@ -5,7 +5,6 @@ import 'intropages/intro1.dart';
 import 'intropages/intro2.dart';
 import 'intropages/intro3.dart';
 
-
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
 
@@ -40,11 +39,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                GestureDetector(
-                  child: const Text('Skip',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold)),
-                  onTap: () {
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white, // Background color
+                    textStyle: const TextStyle(color: Colors.black), // Text style
+                  ),
+                  onPressed: () {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
@@ -54,27 +54,35 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                     );
                   },
+                  child: const Text(
+                    'Skip',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                 ),
                 SmoothPageIndicator(controller: _controller, count: 3),
                 onLastPage == false
-                    ? GestureDetector(
+                    ? ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white, // Background color
+                          textStyle: const TextStyle(color: Colors.black), // Text style
+                        ),
+                        onPressed: () {
+                          _controller.nextPage(
+                            duration: const Duration(milliseconds: 500),
+                            curve: Curves.easeIn,
+                          );
+                        },
                         child: const Text(
                           'Next',
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        onTap: () {
-                          _controller.nextPage(
-                              duration: const Duration(milliseconds: 500),
-                              curve: Curves.easeIn);
-                        },
                       )
-                    : GestureDetector(
-                        child: const Text('Done',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold)),
-                        onTap: () {
+                    : ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white, // Background color
+                          textStyle: const TextStyle(color: Colors.black), // Text style
+                        ),
+                        onPressed: () {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
@@ -84,6 +92,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                           );
                         },
+                        child: const Text(
+                          'Done',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                       ),
               ],
             ),

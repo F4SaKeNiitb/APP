@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF176AAC),
+      backgroundColor: const Color(0xFF4D90C6),
       appBar: AppBar(
         title: const Text('ET AL',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
         backgroundColor: const Color(0xFF176AAC),
@@ -37,10 +37,10 @@ class _HomePageState extends State<HomePage> {
               height: 124.0,
               child: DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Colors.teal,
+                  color:const Color(0xFF4D90C6),
                 ),
                 child: Text(
-                  'Fields',
+                  'Recent Activities',
                   style: TextStyle(
                     fontSize: 24,
                     fontFamily: 'MyFont2',
@@ -53,103 +53,18 @@ class _HomePageState extends State<HomePage> {
                 Icons.all_inclusive_rounded,
 
               ),
-              title: Text('Aerospace'),
+              title: Text('Submission'),
+              subtitle:Text('Submitted a new paper on AI advancements.'),
               onTap: () {
               },
             ),
             ListTile(
               leading: Icon(
                 Icons.all_inclusive_rounded,
+
               ),
-              title: Text('AI/ML'),
-              onTap: () {
-              },
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.all_inclusive_rounded,
-              ),
-              title: Text('Chemical'),
-              onTap: () {
-              },
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.all_inclusive_rounded,
-              ),
-              title: Text('Civil'),
-              onTap: () {
-              },
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.all_inclusive_rounded,
-              ),
-              title: Text('Data Science'),
-              onTap: () {
-              },
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.all_inclusive_rounded,
-              ),
-              title: Text('Electrical and Electronics'),
-              onTap: () {
-              },
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.all_inclusive_rounded,
-              ),
-              title: Text('Finance'),
-              onTap: () {
-              },
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.all_inclusive_rounded,
-              ),
-              title: Text('Management'),
-              onTap: () {
-              },
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.all_inclusive_rounded,
-              ),
-              title: Text('Marketing'),
-              onTap: () {
-              },
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.all_inclusive_rounded,
-              ),
-              title: Text('Mechanical'),
-              onTap: () {
-              },
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.all_inclusive_rounded,
-              ),
-              title: Text('Networking'),
-              onTap: () {
-              },
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.all_inclusive_rounded,
-              ),
-              title: Text('Physics'),
-              onTap: () {
-              },
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.all_inclusive_rounded,
-              ),
-              title: Text('Software Development'),
+              title: Text('Viewd'),
+              subtitle:Text('Viewed a new paper on AI advancements.'),
               onTap: () {
               },
             ),
