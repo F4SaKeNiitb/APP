@@ -23,11 +23,11 @@ class LogoutPage extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
+                  const Text(
                     'Are you sure you want to logout?',
                     style: TextStyle(fontSize: 18),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.pushAndRemoveUntil(
@@ -36,17 +36,17 @@ class LogoutPage extends StatelessWidget {
                         (Route<dynamic> route) => false,
                       );
                     },
-                    child: Text('Logout'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red[300],
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 50,
                         vertical: 15,
                       ),
                     ),
+                    child: const Text('Logout'),
                   ),
                 ],
               ),
