@@ -98,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20))),
                         ),
-                        obscureText: true,
+                        obscureText: false,
                       ),
                       const SizedBox(height: 20),
                       TextField(
